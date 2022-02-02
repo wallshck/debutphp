@@ -34,3 +34,39 @@ $stmt->bindParam(':nombre', $nombre);
  $stmt->execute();
 ?>
 
+
+
+
+
+
+
+<?
+$stmt = $dbh->query("SELECT * FROM Address");
+
+$AllRows = $stmt->fetchAll();
+
+//$Allrows => ["id_address"=>4,"Number"=>98,"address"=> "rue sully","zip"=>80000,"City"=> "Amiens"]
+                
+
+foreach($AllRows as $row){
+    echo "Vous habitez au ".$row["Number"]." ".$row["Address"];
+    echo " Code postal: ".$row["Zip"];
+    echo " Dans la ville de ".$row["City"]."<br>";
+}
+
+$stmt = $dbh->query("SELECT * FROM Address WHERE ID_address=1");
+
+$Rows = $stmt->fetch();
+
+//$rows = ["id_address"=>4,"Number"=>98,"address"=> "rue sully","zip"=>80000,"City"=> "Amiens"]
+        //["id_address"=>4,"Number"=>98,"address"=> "rue sully","zip"=>80000,"City"=> "Amiens"]
+        //["id_address"=>4,"Number"=>98,"address"=> "rue sully","zip"=>80000,"City"=> "Amiens"]
+        //["id_address"=>4,"Number"=>98,"address"=> "rue sully","zip"=>80000,"City"=> "Amiens"]
+
+foreach($AllRows as $row){
+    echo "Vous habitez au ".$row["Number"]." ".$row["Address"];
+    echo " Code postal: ".$row["Zip"];
+    echo " Dans la ville de ".$row["City"]."<br>";
+}
+
+?>
